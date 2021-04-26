@@ -7,8 +7,8 @@ module WriteXlsxRails
       Mime::XLSX
     end
 
-    def self.call(template)
-      <<-TEMPLATE.gsub(/\n/, ';').gsub('{{source}}', template.source)
+    def self.call(template, source)
+      <<-TEMPLATE.gsub(/\n/, ';').gsub('{{source}}', source)
       require 'stringio'
 
       __io = StringIO.new
